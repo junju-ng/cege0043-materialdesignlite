@@ -88,11 +88,5 @@ var testMarkerPink = L.AwesomeMarkers.icon({
 	icon: 'play',
 	markerColor: 'pink'
 });
-			
-// add code that will load the map data AFTER the page has loaded
-document.addEventListener('DOMContentLoaded', function(){
-	// call function to addPointLinePoly
-	addPointLinePoly();
-	}, false);
 
 
