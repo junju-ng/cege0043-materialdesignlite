@@ -11,7 +11,7 @@ function addPointLinePoly(){
     [51.5, -0.07],
     [51.51, -0.08]
 	];
-	L.polyline(myLine,{color:'red'})
+	L.polyline(myLine,{color:'green'})
 	.addTo(mymap).bindPopup("I am a line.");
 			
 	// add a polygon with 3 end points (i.e. a triangle)
@@ -25,6 +25,7 @@ function addPointLinePoly(){
 		fillOpacity:0.5
 	}).addTo(mymap).bindPopup("I am a polygon.");
 }
+
 
 // create the code to get the Earthquakes data using an XMLHttpRequest
 function getEarthquakes(){
@@ -46,7 +47,7 @@ function earthquakeResponse(){
 }
 
 // define a global variable to hold the layer so we can use it later on
-var earthquakelayer
+var earthquakelayer;
 		
 // convert the received data (which is text) into JSON format and add it to the map
 function loadEarthquakelayer(earthquakedata){
@@ -72,7 +73,27 @@ function loadEarthquakelayer(earthquakedata){
 	}).addTo(mymap);
 			
 	// change the map zoom so that all the data is shown
-	mymap.fitBounds(earthquakelayer.getBounds());
+	//mymap.fitBounds(earthquakelayer.getBounds());
 }
+
+// create red test marker
+var testMarkerRed = L.AwesomeMarkers.icon({
+	icon: 'play',
+	markerColor: 'red'
+});
+
+
+// create pink test marker
+var testMarkerPink = L.AwesomeMarkers.icon({
+	icon: 'play',
+	markerColor: 'pink'
+});
+			
+// add code that will load the map data AFTER the page has loaded
+document.addEventListener('DOMContentLoaded', function(){
+	// call function to addPointLinePoly
+	addPointLinePoly();
+	getEarthquakes();
+	}, false);
 
 
