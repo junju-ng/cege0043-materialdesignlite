@@ -73,7 +73,7 @@ function loadEarthquakelayer(earthquakedata){
 	}).addTo(mymap);
 			
 	// change the map zoom so that all the data is shown
-	//mymap.fitBounds(earthquakelayer.getBounds());
+	mymap.fitBounds(earthquakelayer.getBounds());
 }
 
 // create red test marker
@@ -93,7 +93,6 @@ var testMarkerPink = L.AwesomeMarkers.icon({
 document.addEventListener('DOMContentLoaded', function(){
 	// call function to addPointLinePoly
 	addPointLinePoly();
-	getEarthquakes();
 	}, false);
 
 
