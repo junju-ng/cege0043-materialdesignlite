@@ -13,6 +13,13 @@ function addPointLinePoly(){
 	];
 	L.polyline(myLine,{color:'green'})
 	.addTo(mymap).bindPopup("I am a line.");
+	
+	// add a circle
+	L.circle([51.508, -0.11], 500,{
+		color:'red',
+		fillColor:'#f03',
+		fillOpacity: 0.5
+	}).addTo(mymap).bindPopup("I am a circle.");
 			
 	// add a polygon with 3 end points (i.e. a triangle)
 	var myPolygon = L.polygon([
