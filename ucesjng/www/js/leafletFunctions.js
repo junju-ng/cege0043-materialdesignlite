@@ -1,4 +1,5 @@
 var client;
+var earthquakes;
 function addPointLinePoly(){
 	alert("This will add a point, line and polygon.");
 	
@@ -13,6 +14,13 @@ function addPointLinePoly(){
 	];
 	L.polyline(myLine,{color:'green'})
 	.addTo(mymap).bindPopup("I am a line.");
+	
+	// add a circle
+	L.circle([51.508, -0.11], 500,{
+		color:'red',
+		fillColor:'#f03',
+		fillOpacity: 0.5
+	}).addTo(mymap).bindPopup("I am a circle.");
 			
 	// add a polygon with 3 end points (i.e. a triangle)
 	var myPolygon = L.polygon([
@@ -53,6 +61,7 @@ var earthquakelayer;
 function loadEarthquakelayer(earthquakedata){
 	// convert text to JSON
 	var earthquakejson = JSON.parse(earthquakedata);
+	earthquakes = earthquakejson;
 			
 	// load geoJSON earthquake layer using custom markers
 	earthquakelayer = L.geoJSON(earthquakejson,
