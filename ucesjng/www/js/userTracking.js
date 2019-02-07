@@ -16,6 +16,7 @@ function showPosition(position){
 		mymap.removeLayer(userMarker);
 	}
 	userMarker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap).bindPopup("<b>You were here</b>");
+	getDistance();
 }
 
 function getDistance(){
@@ -30,7 +31,9 @@ function getDistanceFromPoint(position){
 	var lng = -0.13818;
 	// return distance in km
 	var distance = calculateDistance(position.coords.latitude, position.coords.longitude, lat, lng, 'K');
-	document.getElementById('showDistance').innerHTML = "Distance: " + distance;
+	if (distance<0.1){
+		alert("You are within 100m of the point!");
+	}
 }
 		
 //code to get distance adapted from https://www.htmlgoodies.com/beyond/javascript/calculate-the-distance-between-two-points-inyour-web-apps.html
